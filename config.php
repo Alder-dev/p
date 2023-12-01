@@ -6,11 +6,11 @@ require_once 'vendor/autoload.php';
 
 $google_client = new Google_Client();
 
-$google_client->setClientId('Your Clint ID.apps.googleusercontent.com');
+$google_client->setClientId('951063186377-0nftm69lj13qubu7khaa34pelure3rea.apps.googleusercontent.com');
 
-$google_client->setClientSecret('Your Client Secret Key');
+$google_client->setClientSecret('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');
 
-$google_client->setRedirectUri('Your exact location where you want the code to be run');
+$google_client->setRedirectUri('http://localhost/pelicula/main.php');
 
 $google_client->addScope('email');
 
