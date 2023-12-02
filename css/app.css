@@ -134,6 +134,75 @@ a.movie-item:hover {
     color: unset;
 }
 
+/* Estilos para el contenedor del menú */
+.nav-wrapper {
+    background-color: #333; /* Color de fondo del menú */
+    padding: 10px 0; /* Espaciado interno del menú */
+}
+
+/* Estilos para el logotipo */
+.logo {
+    color: #fff; /* Color del texto del logotipo */
+    text-decoration: none;
+    font-size: 24px; /* Tamaño del texto */
+}
+
+/* Estilos para la lista del menú */
+.nav-menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* Estilos para los elementos de la lista del menú */
+.nav-menu li {
+    display: inline-block; /* Mostrar elementos en línea */
+    margin-right: 20px; /* Espaciado entre elementos */
+}
+
+/* Estilos para la imagen de usuario */
+.user-image {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    vertical-align: middle; /* Alinear verticalmente al centro */
+    margin-right: 10px; /* Espaciado derecho para separar la imagen del nombre */
+}
+
+/* Estilos para los detalles del usuario */
+.user-details {
+    display: inline-block; /* Mostrar como bloque en línea */
+    vertical-align: middle; /* Alinear verticalmente al centro */
+    color: #fff;
+    font-size: 14px;
+    text-align: left; /* Alinear el texto a la izquierda */
+}
+
+.user-section {
+    display: inline-block; /* Mostrar como un bloque en línea */
+    vertical-align: middle; /* Alinear verticalmente al centro */
+    margin-right: 20px; /* Espaciado derecho para separar de otros elementos del menú */
+}
+
+
+/* Estilos para el botón de cerrar sesión */
+.btn.btn-danger {
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+    background-color: #ff0e06;
+    border: none;
+    border-radius: 20px; /* Borde más redondeado */
+    padding: 8px 16px; /* Espaciado interno del botón */
+    transition: background-color 0.3s ease; /* Transición suave al pasar el mouse */
+    font-size: 12px; /* Tamaño del texto */
+}
+
+.btn.btn-danger:hover {
+    background-color: #5c0401; /* Cambio de color al pasar el mouse */
+}
+
 .btn {
     color: #ffffff;
     padding: 0.25rem 1.5rem;
@@ -169,6 +238,8 @@ a.movie-item:hover {
 .btn i {
     margin-right: 1rem;
 }
+
+
 
 .hamburger-menu {
     --size: 30px;

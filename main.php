@@ -49,6 +49,7 @@ if(!isset($_SESSION['access_token'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>StreetMovies</title>
     <link rel="stylesheet" href="./css/login.css">
+    <link rel="icon" type="image/png" href="./images/icono.png">
     <script src="https://kit.fontawesome.com/b408879b64.js" crossorigin="anonymous"></script>
     <script src="main.js" defer></script>
 </head>
@@ -100,7 +101,7 @@ if(!isset($_SESSION['access_token'])) {
 
 
                             } else {
-                                echo '<div align="center">'.$login_button . '</div>';
+                                echo $login_button;
                             }
                             ?>
                     </div>

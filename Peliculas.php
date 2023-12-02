@@ -8,6 +8,7 @@
     <title>
         Peliculas
     </title>
+    <link rel="icon" type="image/png" href="./images/icono.png">
     <!-- GOOGLE FONTS -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;700;900&display=swap"
@@ -33,15 +34,18 @@
                     <i class='bx bx-movie-play bx-tada main-color'></i>Pe<span class="main-color">lic</span>ulas
                 </a>
                 <ul class="nav-menu" id="nav-menu">
-                    <li><a href="./index.php">Inicio</a></li>
+                    <li><a href="./logeado.php">Inicio</a></li>
                     <li><a href="./peliculas.php">Peliculas</a></li>
                     <li><a href="./series.php">Series</a></li>
                     <li><a href="./acercaDe.php">Acerca de</a></li>
                     <li>
-                        <a href="./main.php" class="btn btn-hover">
-                            <span>Iniciar sesion</span>
-                        </a>
-                    </li>
+                    <form action="/buscar" method="get" class="search-form">
+                        <input type="text" placeholder="Buscar..." name="buscar">
+                        <button type="submit"><i class="bx bx-search"></i></button>
+                    </form>
+                </li>
+                
+                   
                 </ul>
                 <!-- MOBILE MENU TOGGLE -->
                 <div class="hamburger-menu" id="hamburger-menu">
@@ -83,9 +87,9 @@
                                 </div>
                             </div>
                             <div class="item-content-description top-down delay-4">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, possimus eius. Deserunt
-                                non odit, cum vero reprehenderit laudantium odio vitae autem quam, incidunt molestias
-                                ratione mollitia accusantium, facere ab suscipit.
+                            La historia que se adentra en los albores de la Segunda Guerra Mundial acompañando a una tripulación compuesta por cinco valientes soldados de un frio tanque de acero estadounidense, 
+                            cuyo objetivo es introducirse a través de costas europeas. 
+                            Uno de ellos será Brad Pitt (Guerra mundial Z), que tratará de sobrevivir con sus camaradas a los últimos días del conflicto bélico que sacudió a toda Europa. 
                             </div>
                             <div class="item-action top-down delay-6">
                                 <a href="./verVideo.php" class="btn btn-hover">
@@ -123,9 +127,9 @@
                                 </div>
                             </div>
                             <div class="item-content-description top-down delay-4">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, possimus eius. Deserunt
-                                non odit, cum vero reprehenderit laudantium odio vitae autem quam, incidunt molestias
-                                ratione mollitia accusantium, facere ab suscipit.
+                            Supergirl es un drama de acción y aventuras basado en el personaje de DC Comics Kara Zor-El (Melissa Benoist), 
+                            la prima de Superman, quien después de 12 años escondiendo sus poderes 
+                            al mundo decide aceptar sus habilidades para convertirse en una superheroína.
                             </div>
                             <div class="item-action top-down delay-6">
                                 <a href="./verVideo.php" class="btn btn-hover">
@@ -163,9 +167,10 @@
                                 </div>
                             </div>
                             <div class="item-content-description top-down delay-4">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, possimus eius. Deserunt
-                                non odit, cum vero reprehenderit laudantium odio vitae autem quam, incidunt molestias
-                                ratione mollitia accusantium, facere ab suscipit.
+                            WandaVision, Bruja Escarlata y Visión en España, sigue la historia de Bruja Escarlata. En un principio, 
+                            la vimos como una supervillana miembro de la Hermandad de Mutantes. Esta superheroína, 
+                            que se convirtió en miembro de Los Vengadores, 
+                            posee poderes para cambiar la realidad de varias formas no específicas además de ser una gran hechicera.
                             </div>
                             <div class="item-action top-down delay-6">
                                 <a href="./verVideo.php" class="btn btn-hover">
@@ -765,18 +770,16 @@
     </div>
     <!-- END LATEST MOVIES SECTION -->
 
-
-    <!-- FOOTER SECTION -->
     <footer class="section">
         <div class="container">
             <div class="row">
                 <div class="col-4 col-md-6 col-sm-12">
                     <div class="content">
                         <a href="#" class="logo">
-                            <i class='bx bx-movie-play bx-tada main-color'></i>Pe<span class="main-color">lic</span>ulas
+                            <i class='bx bx-movie-play bx-tada main-color'></i>Stre<span class="main-color">et</span>Movies
                         </a>
                         <p>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut veniam ex quos hic id nobis beatae earum sapiente! Quod ipsa exercitationem officiis non error illum minima iusto et. Dolores, quibusdam?
+                        En StreetMovies, creemos en el poder del cine para inspirar, entretener y conectar a las personas. Nuestra misión es brindarte una experiencia cinematográfica excepcional, donde cada película te transporte a un universo único de narrativas cautivadoras y experiencias inolvidables.
                         </p>
                     </div>
                 </div>
@@ -806,8 +809,7 @@
             </div>
         </div>
     </footer>
-    <!-- END FOOTER SECTION -->
-
+    <!-- FIN FOOTER SECTION -->
     <!-- SCRIPT -->
     <!-- JQUERY -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
@@ -818,4 +820,7 @@
         crossorigin="anonymous"></script>
     <!-- APP SCRIPT -->
     <script src="./js/app.js"></script>
+
+</body>
+
 </html>

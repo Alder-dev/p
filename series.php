@@ -8,6 +8,7 @@
     <title>
         Peliculas
     </title>
+    <link rel="icon" type="image/png" href="./images/icono.png">
     <!-- GOOGLE FONTS -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;700;900&display=swap"
@@ -34,15 +35,15 @@
                     <i class='bx bx-movie-play bx-tada main-color'></i>Se<span class="main-color">ri</span>es
                 </a>
                 <ul class="nav-menu" id="nav-menu">
-                    <li><a href="./index.php">Inicio</a></li>
+                <li><a href="./logeado.php">Inicio</a></li>
                     <li><a href="./Peliculas.php">Peliculas</a></li>
                     <li><a href="series.php">Series</a></li>
                     <li><a href="./acercaDe.php">Acerca de</a></li>
-                    <li>
-                        <a href="./main.php" class="btn btn-hover">
-                            <span>Iniciar sesion</span>
-                        </a>
-                    </li>
+                    <form action="/buscar" method="get" class="search-form">
+                        <input type="text" placeholder="Buscar..." name="buscar">
+                        <button type="submit"><i class="bx bx-search"></i></button>
+                    </form>
+                   
                 </ul>
                 <!-- MOBILE MENU TOGGLE -->
                 <div class="hamburger-menu" id="hamburger-menu">
@@ -65,7 +66,7 @@
                     <div class="hero-slide-item-content">
                         <div class="item-content-wraper">
                             <div class="item-content-title top-down">
-                                Freddy Dahmer
+                            Jeffrey Dahmer
                             </div>
                             <div class="movie-infos top-down delay-2">
                                 <div class="movie-info">
@@ -84,9 +85,9 @@
                                 </div>
                             </div>
                             <div class="item-content-description top-down delay-4">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, possimus eius. Deserunt
-                                non odit, cum vero reprehenderit laudantium odio vitae autem quam, incidunt molestias
-                                ratione mollitia accusantium, facere ab suscipit.
+                            Es una miniserie sobre el asesino en serie Jeffrey Dahmer 
+                            acusado de acabar con la vida de más de una decena de individuos, 
+                            uidos varios niños, en Milwaukee y Ohio, entre 1978 y 1991..
                             </div>
                             <div class="item-action top-down delay-6">
                                 <a href="./verVideo.php" class="btn btn-hover">
@@ -124,9 +125,8 @@
                                 </div>
                             </div>
                             <div class="item-content-description top-down delay-4">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, possimus eius. Deserunt
-                                non odit, cum vero reprehenderit laudantium odio vitae autem quam, incidunt molestias
-                                ratione mollitia accusantium, facere ab suscipit.
+                            Un misterioso anarquista que se hace llamar Mr. Robot le pide que se una a su grupo de 'hackers' con el objetivo de destruir la empresa para la que trabaja. 
+                            La ganadora del Globo de Oro a la mejor serie de televisión de 2015 en la categoría de drama fue esta producción con la informática como telón de fondo.
                             </div>
                             <div class="item-action top-down delay-6">
                                 <a href="./verVideo.php" class="btn btn-hover">
@@ -164,9 +164,10 @@
                                 </div>
                             </div>
                             <div class="item-content-description top-down delay-4">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, possimus eius. Deserunt
-                                non odit, cum vero reprehenderit laudantium odio vitae autem quam, incidunt molestias
-                                ratione mollitia accusantium, facere ab suscipit.
+                            Narra la historia de un chico que malvive en las calles de una ciudad futurista obsesionada con la tecnología y la modificación corporal. 
+                            Con todo en su contra, opta por buscarse la vida convirtiéndose en un ‘edgerunner’, 
+                            un mercenario proscrito’. Serie de animación basada en el videojuego 
+                            "Cyberpunk 2077".
                             </div>
                             <div class="item-action top-down delay-6">
                                 <a href="./verVideo.php" class="btn btn-hover">
@@ -765,17 +766,16 @@
 </div>
 <!-- END LATEST MOVIES SECTION -->
 
-    <!-- FOOTER SECTION -->
-    <footer class="section">
+<footer class="section">
         <div class="container">
             <div class="row">
                 <div class="col-4 col-md-6 col-sm-12">
                     <div class="content">
                         <a href="#" class="logo">
-                            <i class='bx bx-movie-play bx-tada main-color'></i>Pe<span class="main-color">lic</span>ulas
+                            <i class='bx bx-movie-play bx-tada main-color'></i>Stre<span class="main-color">et</span>Movies
                         </a>
                         <p>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut veniam ex quos hic id nobis beatae earum sapiente! Quod ipsa exercitationem officiis non error illum minima iusto et. Dolores, quibusdam?
+                        En StreetMovies, creemos en el poder del cine para inspirar, entretener y conectar a las personas. Nuestra misión es brindarte una experiencia cinematográfica excepcional, donde cada película te transporte a un universo único de narrativas cautivadoras y experiencias inolvidables.
                         </p>
                     </div>
                 </div>
@@ -805,8 +805,7 @@
             </div>
         </div>
     </footer>
-    <!-- END FOOTER SECTION -->
-
+    <!-- FIN FOOTER SECTION -->
     <!-- SCRIPT -->
     <!-- JQUERY -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
@@ -817,4 +816,7 @@
         crossorigin="anonymous"></script>
     <!-- APP SCRIPT -->
     <script src="./js/app.js"></script>
+
+</body>
+
 </html>

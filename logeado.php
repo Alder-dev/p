@@ -65,6 +65,7 @@ if(!isset($_SESSION['access_token'])) {
     </title>
     <!-- GOOGLE FONTS -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="icon" type="image/png" href="./images/icono.png">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;700;900&display=swap"
         rel="stylesheet">
     <!-- OWL CAROUSEL -->
@@ -102,6 +103,60 @@ if(!isset($_SESSION['access_token'])) {
         }
 
         /* Puedes agregar más estilos según tus preferencias */
+        .top-movies-slide {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin: 20px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background: rgba(0, 0, 0, 0.8); /* Fondo negro transparente */
+            color: white; /* Texto en color blanco */
+        }
+
+        .movie-info-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .movie-info {
+            flex: 0 0 60%; /* 60% del ancho del contenedor */
+        }
+
+        .movie-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .movie-poster {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
+        .trailer-container {
+            flex: 0 0 35%; /* 35% del ancho del contenedor */
+            text-align: right; /* Alinear el trailer a la derecha */
+        }
+
+        .trailer-link {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .trailer-link:hover {
+            text-decoration: underline;
+        }
+
+        #player {
+            background: rgba(0, 0, 0, 0.5); /* Fondo negro transparente para el reproductor de video */
+            border-radius: 8px;
+            padding: 10px;
+        }
+    
     </style>
     <!-- BOX ICONS -->
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
@@ -153,16 +208,18 @@ if(!isset($_SESSION['access_token'])) {
                         <?php
                         if ($login_button == '') {
                             echo '<div style="text-align: center;">';
-                            echo '<img src="'.$_SESSION["user_image"].'" class="img-responsive img-circle img-thumbnail" />';
+                            echo '<img src="'.$_SESSION["user_image"].'" class="user-image" />';
                             echo '<br>';
                             echo '<h3>'.$_SESSION['user_first_name'].' '.$_SESSION['user_last_name'].'</h3>';
-                            echo '<p>'.$_SESSION['user_email_address'].'</p>';
                             echo '</div>';
                         } else {
                             echo '<div align="center">'.$login_button.'</div>';
                         }
                         ?>
-                        <a href="logout.php" class="btn btn-danger">Cerrar Sesión</a></li>
+                    </li>
+                    <li>
+                    <a href="logout.php" class="btn btn-danger">Cerrar Sesión</a>
+                    </li>
                     </li>
                 </ul>
                 <!-- MENU PARA CELULAR -->
@@ -207,9 +264,10 @@ if(!isset($_SESSION['access_token'])) {
                                 </div>
                             </div>
                             <div class="item-content-description top-down delay-4">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, possimus eius. Deserunt
-                                non odit, cum vero reprehenderit laudantium odio vitae autem quam, incidunt molestias
-                                ratione mollitia accusantium, facere ab suscipit.
+                            Hace millones de años, un meteorito de poderoso vibranium impactó en África. Cuando llegó la era del hombre, 
+                            la mayoría de los habitantes de aquel territorio se unieron bajo el mando de un guerrero chamán que, 
+                            gracias al vibranium, adquirió fuerza, velocidad e instinto sobrehumano, 
+                            convirtiéndose en el primer Black Panther.
                             </div>
                             <div class="item-action top-down delay-6">
                                 <a href="./verVideo.php" class="btn btn-hover">
@@ -247,9 +305,10 @@ if(!isset($_SESSION['access_token'])) {
                                 </div>
                             </div>
                             <div class="item-content-description top-down delay-4">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, possimus eius. Deserunt
-                                non odit, cum vero reprehenderit laudantium odio vitae autem quam, incidunt molestias
-                                ratione mollitia accusantium, facere ab suscipit.
+                            Supergirl es un drama de acción y aventuras basado en el personaje de DC Comics Kara Zor-El (Melissa Benoist), 
+                            la prima de Superman, quien después de 12 años escondiendo sus poderes 
+                            al mundo decide aceptar sus habilidades para convertirse en una superheroína.
+
                             </div>
                             <div class="item-action top-down delay-6">
                                 <a href="./verVideo.php" class="btn btn-hover">
@@ -287,9 +346,10 @@ if(!isset($_SESSION['access_token'])) {
                                 </div>
                             </div>
                             <div class="item-content-description top-down delay-4">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, possimus eius. Deserunt
-                                non odit, cum vero reprehenderit laudantium odio vitae autem quam, incidunt molestias
-                                ratione mollitia accusantium, facere ab suscipit.
+                            WandaVision, Bruja Escarlata y Visión en España, sigue la historia de Bruja Escarlata. En un principio, 
+                            la vimos como una supervillana miembro de la Hermandad de Mutantes. Esta superheroína, 
+                            que se convirtió en miembro de Los Vengadores, 
+                            posee poderes para cambiar la realidad de varias formas no específicas además de ser una gran hechicera.
                             </div>
                             <div class="item-action top-down delay-6">
                                 <a href="./verVideo.php" class="btn btn-hover">
@@ -306,7 +366,14 @@ if(!isset($_SESSION['access_token'])) {
         <!-- FIN HERO SLIDE -->
         <!-- TOP PELICULAS SLIDE -->
         <div class="top-movies-slide">
-        <div id="answer"></div>
+        <div class="movie-info-container">
+                    <div class="movie-info" id="answer"></div>
+                    <div class="trailer-container" id="player"></div>
+                </div><div class="movie-info">
+                        <div class="movie-title" id="title"></div>
+                        <div class="movie-details" id="answer"></div>
+                    </div>
+                    <div class="trailer-container" id="player"></div>
         <script>
             var data;
             gapi.load('client', init);
@@ -759,10 +826,10 @@ if(!isset($_SESSION['access_token'])) {
                 <div class="col-4 col-md-6 col-sm-12">
                     <div class="content">
                         <a href="#" class="logo">
-                            <i class='bx bx-movie-play bx-tada main-color'></i>Pe<span class="main-color">lic</span>ulas
+                            <i class='bx bx-movie-play bx-tada main-color'></i>Stre<span class="main-color">et</span>Movies
                         </a>
                         <p>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut veniam ex quos hic id nobis beatae earum sapiente! Quod ipsa exercitationem officiis non error illum minima iusto et. Dolores, quibusdam?
+                        En StreetMovies, creemos en el poder del cine para inspirar, entretener y conectar a las personas. Nuestra misión es brindarte una experiencia cinematográfica excepcional, donde cada película te transporte a un universo único de narrativas cautivadoras y experiencias inolvidables.
                         </p>
                     </div>
                 </div>

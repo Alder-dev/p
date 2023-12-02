@@ -9,6 +9,7 @@
         StreetMovies
     </title>
     <!-- GOOGLE FONTS -->
+    <link rel="icon" type="image/png" href="./images/icono.png">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;700;900&display=swap"
         rel="stylesheet">
@@ -48,8 +49,8 @@
     </div>
     <!-- FIN NAV -->
 
-    <!-- HERO SECTION -->
-    <div class="hero-section">
+   <!-- HERO SECTION -->
+   <div class="hero-section">
         <!-- HERO SLIDE -->
         <div class="hero-slide">
             <div class="owl-carousel carousel-nav-center" id="hero-carousel">
@@ -79,12 +80,13 @@
                                 </div>
                             </div>
                             <div class="item-content-description top-down delay-4">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, possimus eius. Deserunt
-                                non odit, cum vero reprehenderit laudantium odio vitae autem quam, incidunt molestias
-                                ratione mollitia accusantium, facere ab suscipit.
+                            Hace millones de años, un meteorito de poderoso vibranium impactó en África. Cuando llegó la era del hombre, 
+                            la mayoría de los habitantes de aquel territorio se unieron bajo el mando de un guerrero chamán que, 
+                            gracias al vibranium, adquirió fuerza, velocidad e instinto sobrehumano, 
+                            convirtiéndose en el primer Black Panther.
                             </div>
                             <div class="item-action top-down delay-6">
-                                <a href="./verVideo.php" class="btn btn-hover">
+                                <a href="" class="btn btn-hover">
                                     <i class="bx bxs-right-arrow"></i>
                                     <span>Ver ahora</span>
                                 </a>
@@ -119,12 +121,13 @@
                                 </div>
                             </div>
                             <div class="item-content-description top-down delay-4">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, possimus eius. Deserunt
-                                non odit, cum vero reprehenderit laudantium odio vitae autem quam, incidunt molestias
-                                ratione mollitia accusantium, facere ab suscipit.
+                            Supergirl es un drama de acción y aventuras basado en el personaje de DC Comics Kara Zor-El (Melissa Benoist), 
+                            la prima de Superman, quien después de 12 años escondiendo sus poderes 
+                            al mundo decide aceptar sus habilidades para convertirse en una superheroína.
+
                             </div>
                             <div class="item-action top-down delay-6">
-                                <a href="./verVideo.php" class="btn btn-hover">
+                                <a href="" class="btn btn-hover">
                                     <i class="bx bxs-right-arrow"></i>
                                     <span>Ver ahora</span>
                                 </a>
@@ -159,12 +162,13 @@
                                 </div>
                             </div>
                             <div class="item-content-description top-down delay-4">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, possimus eius. Deserunt
-                                non odit, cum vero reprehenderit laudantium odio vitae autem quam, incidunt molestias
-                                ratione mollitia accusantium, facere ab suscipit.
+                            WandaVision, Bruja Escarlata y Visión en España, sigue la historia de Bruja Escarlata. En un principio, 
+                            la vimos como una supervillana miembro de la Hermandad de Mutantes. Esta superheroína, 
+                            que se convirtió en miembro de Los Vengadores, 
+                            posee poderes para cambiar la realidad de varias formas no específicas además de ser una gran hechicera.
                             </div>
                             <div class="item-action top-down delay-6">
-                                <a href="./verVideo.php" class="btn btn-hover">
+                                <a href="" class="btn btn-hover">
                                     <i class="bx bxs-right-arrow"></i>
                                     <span>Ver ahora</span>
                                 </a>
@@ -175,6 +179,10 @@
                 <!-- FIN PELICULA DEL SLIDE -->
             </div>
         </div>
+        <br>
+        <div class="section-header">
+                Sugerencias
+            </div>
         <!-- FIN HERO SLIDE -->
         <!-- TOP PELICULAS SLIDE -->
         <div class="top-movies-slide">

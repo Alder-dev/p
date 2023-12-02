@@ -171,7 +171,7 @@ if(!isset($_SESSION['access_token'])) {
             <div class="other-links">
                 <p>O puedes ingresar con:</p>
                 <div class="social">
-                    <a href="#">
+                   
                         <?php
                         if ($login_button == '') {
                             header('Location: main.php');
