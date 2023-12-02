@@ -1,7 +1,45 @@
 <?php
-use Google\Service\Oauth2;
-include('config.php');
 include('conexion.php');
+include('config.php');
+
+$login_button = '';
+
+if(isset($_GET["code"])) {
+    $token = $google_client->fetchAccessTokenWithAuthCode($_GET["code"]);
+
+    if(!isset($token['error'])) {
+        $google_client->setAccessToken($token['access_token']);
+        $_SESSION['access_token'] = $token['access_token'];
+
+        $google_service = new Google_Service_Oauth2($google_client);
+
+        $data = $google_service->userinfo->get();
+
+        if(!empty($data['given_name'])) {
+            $_SESSION['user_first_name'] = $data['given_name'];
+        }
+
+        if(!empty($data['family_name'])) {
+            $_SESSION['user_last_name'] = $data['family_name'];
+        }
+
+        if(!empty($data['email'])) {
+            $_SESSION['user_email_address'] = $data['email'];
+        }
+
+        if(!empty($data['gender'])) {
+            $_SESSION['user_gender'] = $data['gender'];
+        }
+
+        if(!empty($data['picture'])) {
+            $_SESSION['user_image'] = $data['picture'];
+        }
+    }
+}
+
+if(!isset($_SESSION['access_token'])) {
+    $login_button = '<a href="'.$google_client->createAuthUrl().'"><i class="fa-brands fa-google"></i></a>';
+}
 
 $comb = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
 $passw = array(); 
@@ -11,22 +49,26 @@ for ($i = 0; $i < 8; $i++) {
     $passw[] = $comb[$n];
 }
 
-$usuario = $_SESSION['user_first_name'];
-$password = implode($passw);
-$rol = 0;
-
-$check_query = "SELECT * FROM usuarios WHERE usuario = '$usuario'";
-$result = $conexion->query($check_query);
-
-if ($result->num_rows > 0) {
-   
+if(isset($_SESSION['user_first_name']) == "") {
+    
 } else {
-   // El correo no existe, proceder con la inserción
-   $insert_query = "INSERT INTO usuarios (usuario, passw, rol) VALUES ('$usuario', '$password', '$rol')";
-   if ($conexion->query($insert_query) === TRUE) {
-   } else {
-       echo "Error en la inserción: " . $conexion->error;
-   }
+    $usuario = $_SESSION['user_first_name'];
+    $password = implode($passw);
+    $rol = 0;
+    
+    $check_query = "SELECT * FROM usuarios WHERE usuario = '$usuario'";
+    $result = $conexion->query($check_query);
+    
+    if ($result->num_rows > 0) {
+       
+    } else {
+       // El usuario no existe, proceder con la inserción
+       $insert_query = "INSERT INTO usuarios (usuario, passw, rol) VALUES ('$usuario', '$password', '$rol')";
+       if ($conexion->query($insert_query) === TRUE) {
+       } else {
+           echo "Error en la inserción: " . $conexion->error;
+       }
+    }
 }
 
 $conexion->close();

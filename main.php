@@ -1,5 +1,5 @@
 <?php
-
+include('conexion.php');
 include('config.php');
 
 $login_button = '';
@@ -85,19 +85,24 @@ if(!isset($_SESSION['access_token'])) {
                 <div class="other-links">
                     <p>O puedes ingresar con:</p>
                     <div class="social">
-                        <a href="#"><?php
+                        <?php
                             if($login_button == '') {
-                               // echo '<div class="panel-heading">Welcome User</div><div class="panel-body">';
-                               // echo '<img src="'.$_SESSION["user_image"].'" class="img-responsive img-circle img-thumbnail" />';
-                                // echo '<h3><b>Name :</b> '.$_SESSION['user_first_name'].' '.$_SESSION['user_last_name'].'</h3>';
-                               // echo '<h3><b>Email :</b> '.$_SESSION['user_email_address'].'</h3>';
-                                // echo '<h3><a href="logout.php">Logout</h3></div>';
-                                header('Location: logeado.php');
+                                $usuario = $_SESSION['user_first_name'];
+
+                                $check_query = "SELECT * FROM usuarios WHERE usuario = '$usuario'";
+                                $result = $conexion->query($check_query);
+
+                                if ($result->num_rows > 0) {
+                                    header('Location: logeado.php');
+                                } else {
+                                    header('Location: register.php');
+                                }
+
 
                             } else {
                                 echo '<div align="center">'.$login_button . '</div>';
                             }
-                            ?></a>
+                            ?>
                     </div>
                 </div>
             </form>
