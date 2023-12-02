@@ -17,6 +17,7 @@ if(isset($_GET["code"])) {
 
         if(!empty($data['given_name'])) {
             $_SESSION['user_first_name'] = $data['given_name'];
+            $usuario = $_SESSION['user_first_name'];
         }
 
         if(!empty($data['family_name'])) {
@@ -40,6 +41,7 @@ if(isset($_GET["code"])) {
 if(!isset($_SESSION['access_token'])) {
     $login_button = '<a href="'.$google_client->createAuthUrl().'"><i class="fa-brands fa-google"></i></a>';
 }
+
 ?>
 
 <!DOCTYPE html>
