@@ -1,0 +1,257 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    background-image: url("../images/mosaico2.jpg");
+
+    margin: 0;
+}
+
+.box {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    background: #bcbcbc;
+    padding: 50px 15px;
+    width: 800px;
+    text-align: center;
+    overflow: hidden;
+    border-radius: 30px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    animation: show 1s;
+}
+
+.left {
+    width: 50%;
+    margin: auto;
+}
+
+.left > img {
+    width: 100%;
+    text-align: center;
+    animation: slide 1s;
+}
+
+form {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin: auto;
+    animation: slide 1.1s;
+}
+
+form label {
+    font-size: small;
+    color: #555;
+}
+
+form > h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.logo {
+    color: #ff0000;
+}
+
+.input-box {
+    position: relative;
+    margin-top: 20px;
+}
+
+.input-box > input {
+    width: 80%;
+    height: 40px;
+    border: 2px solid #ff0000;
+    border-radius: 25px;
+    outline: none;
+    font-size: 1rem;
+    padding-left: 20px;
+    transition: border-color 0.3s, color 0.3s;
+}
+
+.input-box > input:focus,
+.input-box > input:valid {
+    border-color: #ff0000;
+}
+
+.input-box > label {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 55px;
+    pointer-events: none;
+    font-size: 14px;
+    transition: .2s;
+    color: #777;
+}
+
+input:focus ~ label,
+input:valid ~ label {
+    color: #ff0000;
+    top: 0;
+    left: 0;
+    font-size: 12px;
+    background: #ffffff;
+    padding-inline: 5px;
+}
+
+.input-box > i {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 55px;
+    color: #ff0000;
+}
+
+input:focus ~ i,
+input:valid ~ i {
+    color: #ff0000;
+}
+
+.items {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 15px 0;
+    font-size: 12px;
+}
+
+.left {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+button {
+    width: 80%;
+    background: #ff0000;
+    padding: 10px 30px;
+    border: none;
+    color: #fff;
+    border-radius: 25px;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+button:hover {
+    background: #ff3333;
+}
+
+.other-links {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+.social {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+.social > a {
+    width: 45px;
+    height: 45px;
+    background: #e20808;
+    text-align: center;
+    text-decoration: none;
+    margin: 0 5px;
+    transition: .2s;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.social > a:hover {
+    transform: scale(1.1);
+}
+
+.social > a > .fa-brands {
+    font-size: 20px;
+    color: #fff;
+}
+
+.social > a:first-child {
+    background: #e74133;
+}
+
+.social > a:nth-child(2) {
+    background: #3961ba;
+}
+
+.social > a:nth-child(3) {
+    background: #229aef;
+}
+
+.social > a:last-child {
+    background: #202020;
+}
+
+@keyframes show {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slide {
+    from {
+        opacity: 0;
+        transform: translateY(-200%);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .box {
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .box {
+        width: 90%;
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    form {
+        width: 100%;
+    }
+
+    .input-box > input {
+        font-size: .8rem;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .box {
+        width: 80%;
+        padding-block: 30px;
+    }
+}

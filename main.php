@@ -38,39 +38,71 @@ if(isset($_GET["code"])) {
 }
 
 if(!isset($_SESSION['access_token'])) {
-    $login_button = '<a href="'.$google_client->createAuthUrl().'">Login With Google</a>';
+    $login_button = '<a href="'.$google_client->createAuthUrl().'"><i class="fa-brands fa-google"></i></a>';
 }
-
 ?>
-<html>
+
+<html lang="en">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>PHP Login using Google Account</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StreetMovies</title>
+    <link rel="stylesheet" href="./css/login.css">
+    <script src="https://kit.fontawesome.com/b408879b64.js" crossorigin="anonymous"></script>
+    <script src="main.js" defer></script>
 </head>
-<body>
-    <div class="container">
-        <br />
-        <h2 align="center">PHP Login using Google Account</h2>
-        <br />
-        <div class="panel panel-default">
-        <?php
-        if($login_button == '') {
-            echo '<div class="panel-heading">Welcome User</div><div class="panel-body">';
-            echo '<img src="'.$_SESSION["user_image"].'" class="img-responsive img-circle img-thumbnail" />';
-            echo '<h3><b>Name :</b> '.$_SESSION['user_first_name'].' '.$_SESSION['user_last_name'].'</h3>';
-            echo '<h3><b>Email :</b> '.$_SESSION['user_email_address'].'</h3>';
-            echo '<h3><a href="logout.php">Logout</h3></div>';
-        } else {
-            echo '<div align="center">'.$login_button . '</div>';
-        }
-        ?>
+    <body>
+        <div class="box">
+            <div class="left">
+                <img src="images/imglog.png" alt="Logo">
+            </div>
+            <form method="POST" action="logeado.php" >
+                <h2>Login | <span class="logo">StreetMovies</span></h2>
+                <label>¿No tienes una cuenta? <a href="./register.php">Regístrate</a></label>
+                <div class="input-box">
+                    <input type="text" required>
+                    <label>Usuario o email</label>
+                    <i class="fa-solid fa-user"></i>
+                </div>
+                <div class="input-box">
+                    <input type="password" required>
+                    <label>Contraseña</label>
+                    <i class="fa-solid fa-lock"></i>
+                </div>
+                <div class="items">
+                    <div class="left">
+                        <input type="checkbox" id="check">
+                        <span>Recuérdame</span>
+                    </div>
+                    <div class="right">
+                        <a href="#">Olvidé mi contraseña</a>
+                    </div>
+                </div>
+                <div class="btn">
+                    <button type="submit">Iniciar sesión</button>
+                </div>
+                <div class="other-links">
+                    <p>O puedes ingresar con:</p>
+                    <div class="social">
+                        <a href="#"><?php
+                            if($login_button == '') {
+                               // echo '<div class="panel-heading">Welcome User</div><div class="panel-body">';
+                               // echo '<img src="'.$_SESSION["user_image"].'" class="img-responsive img-circle img-thumbnail" />';
+                                // echo '<h3><b>Name :</b> '.$_SESSION['user_first_name'].' '.$_SESSION['user_last_name'].'</h3>';
+                               // echo '<h3><b>Email :</b> '.$_SESSION['user_email_address'].'</h3>';
+                                // echo '<h3><a href="logout.php">Logout</h3></div>';
+                                header('Location: logeado.php');
+
+                            } else {
+                                echo '<div align="center">'.$login_button . '</div>';
+                            }
+                            ?></a>
+                    </div>
+                </div>
+            </form>
         </div>
-    </div>
-</body>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>    
+    </body>
 </html>
