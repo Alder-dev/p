@@ -397,7 +397,7 @@ if(!isset($_SESSION['access_token'])) {
                             "</a></p> <br> <p> Trailers: <a href='" + traiLink + "' target='_blank'>Watch Trailer</a></p>";
                         
                             function searchAndPlay() {
-                            var searchTerm = document.getElementById('searchTerm').value;
+                            var searchTerm = document.getElementById('searchTerm').value + " trailer pelicula";
 
                         }
 
