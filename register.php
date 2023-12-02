@@ -128,24 +128,25 @@ if(!isset($_SESSION['access_token'])) {
         <div class="left">
             <img src="images/imglog.png" alt="Logo">
         </div>
-        <form method="POST" action="registro.php">
+        <form method="POST" action="autenticacionR.php">
             <h2>Registro | <span class="logo">StreetMovies</span></h2>
             <label>¿Ya tienes una cuenta? <a href="./main.php">Inicia sesión</a></label>
-       
+
             <div class="input-box">
                 <input type="text" name="usuario" required>
                 <label>Usuario</label>
                 <i class="fa-solid fa-user"></i>
             </div>
-       
+
             <div class="input-box">
+                <input type="hidden" name="rol" value="0"> <!-- Agregué un valor predeterminado -->
                 <input type="email" name="email" required>
                 <label>Email</label>
                 <i class="fa-solid fa-envelope"></i>
             </div>
-           
+
             <div class="input-box">
-                <input type="password" name="contrasena" required>
+                <input type="password" name="pass" required>
                 <label>Contraseña</label>
                 <i class="fa-solid fa-lock"></i>
             </div>
@@ -155,26 +156,28 @@ if(!isset($_SESSION['access_token'])) {
                 <label>Confirmar Contraseña</label>
                 <i class="fa-solid fa-lock"></i>
             </div>
+
             <div class="items">
                 <div class="left">
                     <input type="checkbox" id="check" required>
                     <span>Acepto los términos y condiciones</span>
                 </div>
             </div>
+
             <div class="btn">
                 <button type="submit">Registrarse</button>
             </div>
+
             <div class="other-links">
                 <p>O puedes ingresar con:</p>
                 <div class="social">
-                  
                     <a href="#">
                         <?php
-                            if($login_button == '') {
-                                header('Location: main.php');
-                            } else {
-                                echo $login_button;
-                            }
+                        if ($login_button == '') {
+                            header('Location: main.php');
+                        } else {
+                            echo $login_button;
+                        }
                         ?>
                     </a>
                 </div>

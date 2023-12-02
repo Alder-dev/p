@@ -71,6 +71,38 @@ if(!isset($_SESSION['access_token'])) {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
         integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g=="
         crossorigin="anonymous" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://apis.google.com/js/api.js"></script>
+        <style>
+        /* Estilos básicos para el botón de búsqueda */
+        .search-button {
+            padding: 10px 20px;
+            background-color: red;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            
+        }
+
+        .search-input {
+            padding: 10px;
+            width: 200px; /* Ajusta el ancho según tus preferencias */
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 12px;
+            margin-bottom: 5px;
+        }
+
+        /* Estilo adicional al enfocar el input */
+        .search-input:focus {
+            outline: none;
+            border-color: #4CAF50; /* Cambia el color al enfocar el input */
+        }
+
+        /* Puedes agregar más estilos según tus preferencias */
+    </style>
     <!-- BOX ICONS -->
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <!-- APP CSS -->
@@ -93,10 +125,29 @@ if(!isset($_SESSION['access_token'])) {
                     <li><a href="./series.php">Series</a></li>
                     <li><a href="./acercaDe.php">Acerca de</a></li>
                     <li>
-                        <form action="/buscar" method="get" class="search-form">
-                            <input type="text" placeholder="Buscar..." name="buscar">
-                            <button type="submit"><i class="bx bx-search"></i></button>
-                        </form>
+                    <input class="search-input"
+                        onkeyup="getanswer(document.getElementById('qurybox').value)"
+                        id="qurybox"
+                        />
+                        <input type="hidden" id="qurybox"/>
+                        <button class="search-button" onclick="searchAndPlay()"> Buscar</button>
+                        <script>
+                            // Cargar la API de YouTube
+                            gapi.load('client', init);
+
+                            // Inicializar la API de YouTube
+                            function init() {
+                                gapi.client.init({
+                                    apiKey: 'AIzaSyCcFks5LcPMrEwa0QCHzA2qHxcBUr92Em0', 
+                                    discoveryDocs: ["https://www.googleapis.com/discovery/v1/apis/youtube/v3/rest"],
+                                }).then(function () {
+                                    console.log('API de YouTube cargada.');
+                                }, function (error) {
+                                    console.error('Error al cargar la API de YouTube.', error);
+                                });
+                            }
+
+                        </script>
                     </li>
                     <li>
                         <?php
@@ -106,12 +157,12 @@ if(!isset($_SESSION['access_token'])) {
                             echo '<br>';
                             echo '<h3>'.$_SESSION['user_first_name'].' '.$_SESSION['user_last_name'].'</h3>';
                             echo '<p>'.$_SESSION['user_email_address'].'</p>';
-                            echo '<a href="logout.php" class="btn btn-danger">Cerrar Sesión</a>';
                             echo '</div>';
                         } else {
                             echo '<div align="center">'.$login_button.'</div>';
                         }
                         ?>
+                        <a href="logout.php" class="btn btn-danger">Cerrar Sesión</a></li>
                     </li>
                 </ul>
                 <!-- MENU PARA CELULAR -->
@@ -255,176 +306,59 @@ if(!isset($_SESSION['access_token'])) {
         <!-- FIN HERO SLIDE -->
         <!-- TOP PELICULAS SLIDE -->
         <div class="top-movies-slide">
-            <div class="owl-carousel" id="top-movies-slide">
-                <!-- PELICULA -->
-                <div class="movie-item">
-                    <a href="./verVideo.php">
-                    <img src="./images/series/supergirl.jpg" alt="">
-                    <div class="movie-item-content">
-                        <div class="movie-item-title">
-                            Supergirl
-                        </div>
-                        <div class="movie-infos">
-                            <div class="movie-info">
-                                <i class="bx bxs-star"></i>
-                                <span>9.5</span>
-                            </div>
-                            <div class="movie-info">
-                                <i class="bx bxs-time"></i>
-                                <span>120 mins</span>
-                            </div>
-                            <div class="movie-info">
-                                <span>HD</span>
-                            </div>
-                            <div class="movie-info">
-                                <span>16+</span>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-                </div>
-                <!-- FIN PELICULA -->
-                <!-- PELICULA -->
-                <div class="movie-item">
-                    <a href="./verVideo.php">
-                    <img src="./images/movies/captain-marvel.png" alt="">
-                    <div class="movie-item-content">
-                        <div class="movie-item-title">
-                            Captain Marvel
-                        </div>
-                        <div class="movie-infos">
-                            <div class="movie-info">
-                                <i class="bx bxs-star"></i>
-                                <span>9.5</span>
-                            </div>
-                            <div class="movie-info">
-                                <i class="bx bxs-time"></i>
-                                <span>120 mins</span>
-                            </div>
-                            <div class="movie-info">
-                                <span>HD</span>
-                            </div>
-                            <div class="movie-info">
-                                <span>16+</span>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-                </div>
-                <!-- FIN PELICULA -->
-                <!-- PELICULA -->
-                <div class="movie-item">
-                    <a href="./verVideo.php">
-                    <img src="./images/cartoons/demon-slayer.jpg" alt="">
-                    <div class="movie-item-content">
-                        <div class="movie-item-title">
-                            Infinity Train
-                        </div>
-                        <div class="movie-infos">
-                            <div class="movie-info">
-                                <i class="bx bxs-star"></i>
-                                <span>9.5</span>
-                            </div>
-                            <div class="movie-info">
-                                <i class="bx bxs-time"></i>
-                                <span>120 mins</span>
-                            </div>
-                            <div class="movie-info">
-                                <span>HD</span>
-                            </div>
-                            <div class="movie-info">
-                                <span>16+</span>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-                </div>
-                <!-- FIN PELICULA -->
-                <!-- PELICULA -->
-                <div class="movie-item">
-                    <a href="./verVideo.php">
-                    <img src="./images/movies/blood-shot.jpg" alt="">
-                    <div class="movie-item-content">
-                        <div class="movie-item-title">
-                            Bloodshot
-                        </div>
-                        <div class="movie-infos">
-                            <div class="movie-info">
-                                <i class="bx bxs-star"></i>
-                                <span>9.5</span>
-                            </div>
-                            <div class="movie-info">
-                                <i class="bx bxs-time"></i>
-                                <span>120 mins</span>
-                            </div>
-                            <div class="movie-info">
-                                <span>HD</span>
-                            </div>
-                            <div class="movie-info">
-                                <span>16+</span>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-                </div>
-                <!-- FIN PELICULA -->
-                <!-- PELICULA -->
-                <div class="movie-item">
-                    <a href="./verVideo.php">
-                    <img src="./images/series/wanda.png" alt="">
-                    <div class="movie-item-content">
-                        <div class="movie-item-title">
-                            Wanda Vision
-                        </div>
-                        <div class="movie-infos">
-                            <div class="movie-info">
-                                <i class="bx bxs-star"></i>
-                                <span>9.5</span>
-                            </div>
-                            <div class="movie-info">
-                                <i class="bx bxs-time"></i>
-                                <span>120 mins</span>
-                            </div>
-                            <div class="movie-info">
-                                <span>HD</span>
-                            </div>
-                            <div class="movie-info">
-                                <span>16+</span>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-                </div>
-                <!-- FIN PELICULA -->
-                <!-- PELICULA -->
-                <div class="movie-item">
-                    <a href="./verVideo.php">
-                    <img src="./images/movies/bat-man.jpg" alt="">
-                    <div class="movie-item-content">
-                        <div class="movie-item-title">
-                            The Dark Knight
-                        </div>
-                        <div class="movie-infos">
-                            <div class="movie-info">
-                                <i class="bx bxs-star"></i>
-                                <span>9.5</span>
-                            </div>
-                            <div class="movie-info">
-                                <i class="bx bxs-time"></i>
-                                <span>120 mins</span>
-                            </div>
-                            <div class="movie-info">
-                                <span>HD</span>
-                            </div>
-                            <div class="movie-info">
-                                <span>16+</span>
-                            </div>
-                        </div>
-                    </div>
-                    </a>
-                </div>
-                <!-- FIN PELICULA -->
-            </div>
+        <div id="answer"></div>
+        <script>
+            var data;
+            gapi.load('client', init);
+
+            function getanswer(q) {
+                $.get(
+                    "https://www.omdbapi.com/?s=" + q + "&apikey=ba1f4581",
+                    function (rawdata) {
+                        var rawstring = JSON.stringify(rawdata);
+                        data = JSON.parse(rawstring);
+                        var title = data.Search[0].Title;
+                        var year = data.Search[0].Year;
+                        var imdburl = "https://www.imdb.com/title/" + data.Search[0].imdbID + "/";
+                        var posterurl = data.Search[0].Poster;
+
+                        // Agregar el enlace al tráiler
+                        var traiLink = "https://www.imdb.com/video/" + data.Search[0].imdbID + "/";
+                        document.getElementById("answer").innerHTML =
+                            "<h1>" + title + "</h1><br> <img src= '" + posterurl + "'><br><p> Year Released:" +
+                            year + "</p> <br> <p> IMDB page: <a href='" + imdburl + "' target='_blank'>" + imdburl +
+                            "</a></p> <br> <p> Trailers: <a href='" + traiLink + "' target='_blank'>Watch Trailer</a></p>";
+                        
+                            function searchAndPlay() {
+                            var searchTerm = document.getElementById('searchTerm').value;
+
+                        }
+
+                    }
+                );
+            }
+            // Buscar y reproducir un video en YouTube
+            function searchAndPlay() {
+                var searchTerm = document.getElementById('qurybox').value;
+
+                // Realizar una búsqueda de video en YouTube
+                gapi.client.youtube.search.list({
+                    q: searchTerm,
+                    part: 'snippet',
+                    type: 'video',
+                    maxResults: 1,
+                }).then(function (response) {
+                    var videoId = response.result.items[0].id.videoId;
+
+                    // Insertar el reproductor de YouTube
+                    var playerDiv = document.getElementById('player');
+                    playerDiv.innerHTML = '<iframe width="560" height="315" src="https://www.youtube.com/embed/' + videoId + '" frameborder="0" allowfullscreen></iframe>';
+                }, function (error) {
+                    console.error('Error al realizar la búsqueda en YouTube.', error);
+                });
+            }
+        </script>
+        <div id="player"></div>
         </div>
         <!-- FIN TOP PELICULAS SLIDE -->
     </div>

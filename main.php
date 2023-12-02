@@ -57,16 +57,16 @@ if(!isset($_SESSION['access_token'])) {
             <div class="left">
                 <img src="images/imglog.png" alt="Logo">
             </div>
-            <form method="POST" action="logeado.php" >
+            <form method="POST" action="autenticacion.php" >
                 <h2>Login | <span class="logo">StreetMovies</span></h2>
                 <label>¿No tienes una cuenta? <a href="./register.php">Regístrate</a></label>
                 <div class="input-box">
-                    <input type="text" required>
-                    <label>Usuario o email</label>
+                    <input type="text" name="user" required>
+                    <label>Usuario</label>
                     <i class="fa-solid fa-user"></i>
                 </div>
                 <div class="input-box">
-                    <input type="password" required>
+                    <input type="password" name="pass" required>
                     <label>Contraseña</label>
                     <i class="fa-solid fa-lock"></i>
                 </div>
