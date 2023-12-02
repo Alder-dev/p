@@ -397,7 +397,7 @@ if(!isset($_SESSION['access_token'])) {
                             "</a></p> <br> <p> Trailers: <a href='" + traiLink + "' target='_blank'>Watch Trailer</a></p>";
                         
                             function searchAndPlay() {
-                            var searchTerm = document.getElementById('searchTerm').value + " trailer pelicula";
+                            var searchTerm = document.getElementById('searchTerm').value;
 
                         }
 
@@ -406,7 +406,7 @@ if(!isset($_SESSION['access_token'])) {
             }
             // Buscar y reproducir un video en YouTube
             function searchAndPlay() {
-                var searchTerm = document.getElementById('qurybox').value;
+                var searchTerm = document.getElementById('qurybox').value + ' trailer pelicula';
 
                 // Realizar una búsqueda de video en YouTube
                 gapi.client.youtube.search.list({
