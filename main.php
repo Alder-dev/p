@@ -94,7 +94,7 @@ if(!isset($_SESSION['access_token'])) {
                                 $result = $conexion->query($check_query);
 
                                 if ($result->num_rows > 0) {
-                                    header('Location: logeado.php');
+                                    header('Location: sugerencia.php');
                                 } else {
                                     header('Location: register.php');
                                 }

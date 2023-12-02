@@ -12,7 +12,7 @@ $check_query = "SELECT * FROM usuarios WHERE usuario = '$usuario'";
 $result = $conexion->query($check_query);
 
 if ($result->num_rows > 0) {
-    // El usuario ya existe, manejar según sea necesario
+    // El usuario ya existe
     header('Location: main.php');
 } else {
     // El usuario no existe, proceder con la inserción
@@ -20,7 +20,7 @@ if ($result->num_rows > 0) {
 
     if ($conexion->query($insert_query) === TRUE) {
         // Redirigir después de la inserción exitosa
-        header('Location: logeado.php');
+        header('Location: sugerencia.php');
     } else {
         echo "Error en la inserción: " . $conexion->error;
     }

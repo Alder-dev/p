@@ -51,7 +51,7 @@
 <body>
     <div class="box">
       
-        <form method="POST" action="registro.php">
+        <form method="POST" action="logeado.php">
             <div class="genre-selection">
                 <h2>¡Encuentra las películas perfectas para ti!</h2>
                 <p>Selecciona tus géneros de películas favoritos:</p>
